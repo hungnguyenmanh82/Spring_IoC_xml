@@ -1,0 +1,104 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<!-- Khi chạy các app1, app2,.. thì comment XML cua các app con lai -->
+	<!-- App1 -->
+	<bean id="helloWorld" class="hung.com.hello.HelloWorld">
+		<property name="message" value="Hello World!" />
+	</bean>
+
+	<!-- App2 -->
+	<bean id="BeanLifeCycle" class="hung.com.lifecycle.BeanLifeCycle"
+		init-method="init" destroy-method="destroy">
+		<property name="message" value="Hello World!" />
+	</bean>
+
+	<!-- cái này có tác dụng với mọi Bean trong XML -->
+	<!-- <bean class="hung.com.lifecycle.TestBeanPostProcessor" /> -->
+
+	<!-- App3 Constructor with parameters -->
+	<!-- Definition for textEditor bean -->
+	<bean id="textEditor" class="hung.com.constructor.TextEditor">
+		<constructor-arg ref="spellChecker" />
+	</bean>
+
+	<!-- Definition for spellChecker bean -->
+	<bean id="spellChecker" class="hung.com.constructor.SpellChecker"></bean>
+
+	<!-- App4: setter Dependency injection -->
+	<bean id="CompositBean" class="hung.com.setter.CompositBean">
+		<property name="child" ref="ChildBean" />
+	</bean>
+	<bean id="ChildBean" class="hung.com.setter.ChildBean"></bean>
+
+	<!-- App5: Parent class with member variables are classes -->
+	<!-- bắt buộc phải khai báo Setter ở java code mới đc. giống với cách dùng 
+		hàm setter ở App4 -->
+	<bean id="ParentBean" class="hung.com.properties.ParentBean">
+		<property name="propertyBean">
+			<bean id="PropertyBean" class="hung.com.properties.PropertyBean" />
+		</property>
+	</bean>
+
+	<!-- App6: Collection includes Map, List, Set... -->
+	<!-- Definition for javaCollection -->
+	<bean id="javaCollection" class="hung.com.collection.JavaCollection">
+
+		<!-- results in a setAddressList(java.util.List) call -->
+		<property name="addressList">
+			<list>
+				<value>INDIA</value>
+				<value>Pakistan</value>
+				<value>USA</value>
+				<value>USA</value>
+			</list>
+		</property>
+
+		<!-- results in a setAddressSet(java.util.Set) call -->
+		<property name="addressSet">
+			<set>
+				<value>INDIA</value>
+				<value>Pakistan</value>
+				<value>USA</value>
+				<value>USA</value>
+			</set>
+		</property>
+
+		<!-- results in a setAddressMap(java.util.Map) call -->
+		<property name="addressMap">
+			<map>
+				<entry key="1" value="INDIA" />
+				<entry key="2" value="Pakistan" />
+				<entry key="3" value="USA" />
+				<entry key="4" value="USA" />
+			</map>
+		</property>
+
+		<!-- results in a setAddressProp(java.util.Properties) call -->
+		<property name="addressProp">
+			<props>
+				<prop key="one">INDIA</prop>
+				<prop key="one">INDIA</prop>
+				<prop key="two">Pakistan</prop>
+				<prop key="three">USA</prop>
+				<prop key="four">USA</prop>
+			</props>
+		</property>
+	</bean>
+
+	<!-- App7: autoWire in parent bean -->
+	<!-- setter bắt buộc phải khai báo trong java => cái này còn dùng để debug -->
+	<bean id="ParentBeanAutoWire" class="hung.com.autowire.ParentBeanAutoWire"
+		autowire="byType">
+		<property name="name" value="Generic Text Editor" />
+		<!-- ko phải khai bao child bean ở đây vì đã dùng autowire rồi -->
+	</bean>
+
+	<!-- child bean bắt buộc phải khai báo thì autowire mới dùng đc -->
+	<bean id="ChildBeanAutoWire" class="hung.com.autowire.ChildBeanAutoWire"></bean>
+
+</beans>
