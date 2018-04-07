@@ -12,7 +12,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class App4_Setter {
 	public static void main(String[] args) {
-		ApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
+		ApplicationContext context = new ClassPathXmlApplicationContext("Beans4.xml");
 
 		CompositBean parent = (CompositBean) context.getBean("CompositBean");
 		parent.spellCheck();

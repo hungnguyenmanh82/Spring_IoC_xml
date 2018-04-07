@@ -8,7 +8,7 @@ import hung.com.hello.HelloWorld;
 
 public class App2_LifeCycle {
 	public static void main(String[] args) {
-		AbstractApplicationContext  context = new ClassPathXmlApplicationContext("Beans.xml");
+		AbstractApplicationContext  context = new ClassPathXmlApplicationContext("Beans2.xml");
 		BeanLifeCycle obj = (BeanLifeCycle) context.getBean("BeanLifeCycle");
 		obj.getMessage();
 		

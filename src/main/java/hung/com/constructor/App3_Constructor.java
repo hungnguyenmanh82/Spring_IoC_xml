@@ -11,7 +11,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  */
 public class App3_Constructor {
 	public static void main(String[] args) {
-		ApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
+		ApplicationContext context = new ClassPathXmlApplicationContext("Beans3.xml");
 
 		TextEditor te = (TextEditor) context.getBean("textEditor");
 		te.spellCheck();

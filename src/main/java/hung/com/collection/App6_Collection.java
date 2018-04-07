@@ -6,7 +6,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class App6_Collection {
 
 	public static void main(String[] args) {
-	      ApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
+	      ApplicationContext context = new ClassPathXmlApplicationContext("Beans6.xml");
 	      JavaCollection jc=(JavaCollection)context.getBean("javaCollection");
 
 	      jc.getAddressList();

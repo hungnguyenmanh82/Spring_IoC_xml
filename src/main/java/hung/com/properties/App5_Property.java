@@ -5,7 +5,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class App5_Property {
 	public static void main(String[] args) {
-		ApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
+		ApplicationContext context = new ClassPathXmlApplicationContext("Beans5.xml");
 		ParentBean parentBean = (ParentBean) context.getBean("ParentBean");
 		parentBean.showMessage();
 	}

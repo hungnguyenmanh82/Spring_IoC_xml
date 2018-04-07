@@ -1,0 +1,14 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<!-- App4: setter Dependency injection -->
+	<bean id="CompositBean" class="hung.com.setter.CompositBean">
+		<property name="child" ref="ChildBean" />
+	</bean>
+	<bean id="ChildBean" class="hung.com.setter.ChildBean"></bean>
+
+</beans>
