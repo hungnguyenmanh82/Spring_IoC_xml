@@ -1,7 +1,12 @@
 eclipse.preferences.version=1
+encoding//src/main/java=UTF-8
 encoding//src/main/java/hung/com/constructor/App3_Constructor.java=UTF-8
 encoding//src/main/java/hung/com/hello/App1_Hello.java=UTF-8
 encoding//src/main/java/hung/com/lifecycle/App2_LifeCycle.java=UTF-8
 encoding//src/main/java/hung/com/lifecycle/TestBeanPostProcessor.java=UTF-8
 encoding//src/main/java/hung/com/setter/App4_Setter.java=UTF-8
 encoding//src/main/java/hung/com/setter/CompositBean.java=UTF-8
+encoding//src/main/resources=UTF-8
+encoding//src/test/java=UTF-8
+encoding//src/test/resources=UTF-8
+encoding/<project>=UTF-8
